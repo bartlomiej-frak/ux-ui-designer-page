@@ -1,0 +1,17 @@
+@layer components {
+  .link-hover {
+    @apply transition duration-150 ease-linear hover:text-violet;
+  }
+
+  .mobile-menu-icon {
+    @apply text-[25px] text-foreground md:hidden;
+  }
+
+  .calc-viewport {
+    height: calc(100vh - theme("height.navbar"));
+  }
+
+  .calc-navbar-mask {
+    height: calc(theme("height.navbar") - 1px);
+  }
+}

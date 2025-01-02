@@ -1,0 +1,46 @@
+@import "./custom.css";
+
+@font-face {
+  font-family: "Neuve-Regular";
+  src: url("../public/fonts/neuvegrotesque-regular.ttf");
+}
+
+@font-face {
+  font-family: "TSR";
+  src: url("../public/fonts/times-new-roman-italic.ttf");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #131314;
+  --foreground: #dbdbdb;
+  --mobile-bg: #080808;
+
+  --primary-gray: #313131;
+  --secondary-gray: #959595;
+  --primary-violet: #a59bd8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #131314;
+    --foreground: #dbdbdb;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Neuve-Regular", Helvetica, sans-serif;
+  font-size: large;
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

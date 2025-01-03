@@ -21,7 +21,12 @@
 
   --primary-gray: #313131;
   --secondary-gray: #959595;
+  --tertiary-gray: #a5a5a5;
+
   --primary-violet: #a59bd8;
+  --secondary-violet: #cec5ff;
+
+  --max-content: 1190px;
 }
 
 @media (prefers-color-scheme: dark) {

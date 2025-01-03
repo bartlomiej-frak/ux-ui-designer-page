@@ -15,9 +15,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ height: "200vh", width: "100%" }}>
+      {/* TODO: Remove hardcoded body styles */}
+      <body
+        style={{
+          height: "200vh",
+          width: "100%",
+        }}
+      >
         <Navbar />
-        <main className="px-global">{children}</main>
+        <main className="flex w-full justify-center px-[15px] md:px-[50px]">
+          <div className="w-full max-w-[var(--max-content)]">{children}</div>
+        </main>
       </body>
     </html>
   );

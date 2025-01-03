@@ -4,7 +4,7 @@ export const DesktopMenu = () => {
   return (
     <ul className="hidden flex-row items-center justify-between space-x-14 md:flex">
       <li>
-        <NavLink href={"/"}>WORK</NavLink>
+        <NavLink href={"#showcase"}>WORK</NavLink>
       </li>
       <li>
         <NavLink href={"/info"}>INFO</NavLink>

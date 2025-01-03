@@ -13,8 +13,10 @@ const config: Config = {
         gray: {
           primary: "var(--primary-gray)",
           secondary: "var(--secondary-gray)",
+          tertiary: "var(--tertiary-gray)",
         },
         violet: "var(--primary-violet)",
+        light_violet: "var(--secondary-violet)",
         foreground: "var(--foreground)",
         background: "var(--background)",
         mobile_bg: "var(--mobile-bg)",

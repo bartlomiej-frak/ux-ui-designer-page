@@ -2,14 +2,25 @@ import { IHeroFields } from "@/lib/@types/generated/contentful";
 import { fetchContent } from "@/lib/contentful";
 import Image from "next/image";
 import RichText from "./RichText";
+import { Suspense } from "react";
+import { TextLoader } from "./loaders/TextLoader";
 
-export const Hero = async () => {
+async function HeroTextBig() {
   const hero = await fetchContent<IHeroFields>("hero");
-
   const heroBig = hero.filter(({ title }) => title === "hero-big")[0].heroText;
+
+  return <RichText document={heroBig} />;
+}
+
+async function HeroTextSmall() {
+  const hero = await fetchContent<IHeroFields>("hero");
   const heroSmall = hero.filter(({ title }) => title === "hero-small")[0]
     .heroText;
 
+  return <RichText document={heroSmall} />;
+}
+
+export const Hero = async () => {
   return (
     <div className="mt-5 grid w-full grid-cols-[1fr,1fr,215px]">
       <Image
@@ -28,10 +39,16 @@ export const Hero = async () => {
           sm:text-justify md:indent-[450px] md:text-[40px] md:leading-[50px]
           lg:text-[57px] lg:leading-[60px]"
       >
-        <RichText document={heroBig} />
+        <Suspense
+          fallback={<TextLoader rows={3} rowHight={40} width={100} gap={10} />}
+        >
+          <HeroTextBig />
+        </Suspense>
       </div>
-      <div className="text-gray-tertiary col-start-3 col-end-4 pt-[100px] text-[14px]">
-        <RichText document={heroSmall} />
+      <div className="col-start-3 col-end-4 pt-[100px] text-[14px] text-gray-tertiary">
+        <Suspense fallback={<TextLoader rows={5} rowHight={15} width={100} />}>
+          <HeroTextSmall />
+        </Suspense>
       </div>
     </div>
   );

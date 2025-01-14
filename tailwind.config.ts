@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        shimmer: "shimmer 1.5s infinite",
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(50%)", opacity: "1" },
+          "100%": { transform: "translateX(95%)", opacity: "0" },
+        },
+      },
       colors: {
         gray: {
           primary: "var(--primary-gray)",

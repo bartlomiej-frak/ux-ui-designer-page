@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Navbar } from "@/components/navigation/Navbar";
+import { Footer } from "@/components/navigation/Footer";
 
 export const metadata: Metadata = {
   title: "UI/UX Designer Portfolio - [Your Name]",
@@ -15,17 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* TODO: Remove hardcoded body styles */}
-      <body
-        style={{
-          height: "200vh",
-          width: "100%",
-        }}
-      >
+      <body>
         <Navbar />
-        <main className="flex w-full justify-center px-[15px] md:px-[50px]">
+        <main className="responsive-padding flex w-full justify-center">
           <div className="w-full max-w-[var(--max-content)]">{children}</div>
         </main>
+        <Footer />
       </body>
     </html>
   );

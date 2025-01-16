@@ -22,9 +22,10 @@ export const ShowCaseCard = ({
   return (
     <Link href={`/showcase/${slug}`}>
       <div
-        className="group relative border-[0] border-transparent bg-gradient-to-b from-black/0
-          to-black px-7 transition duration-100 ease-linear hover:border-[1px]
-          hover:border-light_violet lg:min-h-[400px]"
+        className="group relative min-h-[450px] border-[0] border-transparent bg-gradient-to-b
+          from-black/0 to-black px-7 transition duration-100 ease-linear
+          hover:border-[1px] hover:border-light_violet sm:min-h-[350px] sm:px-2
+          md:min-h-[420px] md:px-7 xl:min-h-[350px]"
       >
         <Image
           className="-z-10"

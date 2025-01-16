@@ -14,4 +14,8 @@
   .calc-navbar-mask {
     height: calc(theme("height.navbar") - 1px);
   }
+
+  .responsive-padding {
+    @apply px-[15px] md:px-[60px] lg:px-global;
+  }
 }

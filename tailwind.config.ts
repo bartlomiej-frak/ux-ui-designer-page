@@ -12,6 +12,9 @@ const config: Config = {
       animation: {
         shimmer: "shimmer 1.5s infinite",
       },
+      boxShadow: {
+        nav_shadow: "0px 15px 58px rgba(0, 0, 0, 0.7)",
+      },
       keyframes: {
         shimmer: {
           "0%": { transform: "translateX(50%)", opacity: "1" },

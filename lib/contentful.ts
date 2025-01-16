@@ -19,6 +19,6 @@ export async function fetchContent<T extends FieldsType>(
     content_type,
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return content.items.map((item) => item.fields) as T[];
 }

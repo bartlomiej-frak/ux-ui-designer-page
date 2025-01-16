@@ -40,6 +40,9 @@ export interface IShowcaseFields {
 
   /** Image Path */
   imagePath: string;
+
+  /** Creation date */
+  creationDate: string;
 }
 
 export interface IShowcase extends Entry<IShowcaseFields> {

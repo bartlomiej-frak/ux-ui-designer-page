@@ -14,8 +14,8 @@ export const Navbar = () => {
     <>
       <nav
         key={isMobileMenuVisible.toString()}
-        className="h-navbar sticky left-0 top-0 z-10 flex w-full justify-center border-b-[0.5px]
-          px-[15px] backdrop-blur-sm md:px-[60px] lg:px-global"
+        className="responsive-padding md:shadow-nav_shadow sticky left-0 top-0 z-10 flex h-navbar
+          w-full justify-center border-b-[0.5px] backdrop-blur-sm"
       >
         <div className="flex w-full max-w-[var(--max-content)] flex-row items-center justify-between">
           <Image

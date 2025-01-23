@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NavLink } from "../NavLink";
+import { NavLink } from "./NavLink";
 import Image from "next/image";
 
 export const Footer = () => {
@@ -15,7 +15,7 @@ export const Footer = () => {
           </div>
           <ul className="flex flex-col items-center justify-center gap-4 md:flex-1 md:flex-row md:gap-20">
             <li>
-              <NavLink href={"#showcase"}>WORKS</NavLink>
+              <NavLink href={"/#showcase"}>WORKS</NavLink>
             </li>
             <li>
               <NavLink href={"/info"}>INFO</NavLink>

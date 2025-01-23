@@ -1,9 +1,10 @@
-import { ShowCaseGrid } from "./ShowCaseGrid";
 import { fetchContent } from "@/lib/contentful";
 import { Suspense } from "react";
-import { GridSkeleton } from "../loaders/GridSkeleton";
 import { IShowcaseFields } from "@/lib/@types/generated/contentful";
-import { useFilterCards } from "./useFilterCards";
+import { Grid } from "@/components/showcase/Grid";
+import { GridSkeleton } from "@/components/loaders/GridSkeleton";
+
+export const revalidate = 3600;
 
 async function Cards() {
   const showcase = await fetchContent<IShowcaseFields>("showcase");
@@ -11,7 +12,7 @@ async function Cards() {
     (a, b) =>
       new Date(a.creationDate).getTime() - new Date(b.creationDate).getTime(),
   );
-  return <ShowCaseGrid data={showcase} />;
+  return <Grid data={showcaseByDateOfCreation} />;
 }
 
 export const ShowCase = () => {
@@ -24,3 +25,5 @@ export const ShowCase = () => {
     </div>
   );
 };
+
+export default ShowCase;

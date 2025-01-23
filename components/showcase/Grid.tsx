@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ShowCaseCard } from "./ShowCaseCard";
+import { Card } from "./Card";
 import { IShowcaseFields } from "@/lib/@types/generated/contentful";
 
 type FilterBy =
@@ -11,7 +11,7 @@ type FilterBy =
   | "Case Study"
   | "Wireframes";
 
-export const ShowCaseGrid = ({ data }: { data: IShowcaseFields[] }) => {
+export const Grid = ({ data }: { data: IShowcaseFields[] }) => {
   const [filterBy, setFilter] = useState<FilterBy>("All");
 
   return (
@@ -42,7 +42,7 @@ export const ShowCaseGrid = ({ data }: { data: IShowcaseFields[] }) => {
             filterBy === "All" ? item : item.tags.includes(filterBy),
           )
           .map((item) => (
-            <ShowCaseCard key={item.title} showcaseItem={item} />
+            <Card key={item.title} showcaseItem={item} />
           ))}
       </div>
     </>

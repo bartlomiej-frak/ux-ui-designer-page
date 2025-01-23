@@ -1,30 +1,32 @@
 "use client";
 
-import { NavLink } from "../NavLink";
+import { NavLink } from "./NavLink";
 import { MobileMenu, MobileMenuIcon } from "./MobileMenu";
 import Image from "next/image";
 import { DesktopMenu } from "./DesktopMenu";
-import { navigationController } from "./navigation-hook";
+import { useNavigationController } from "../../hooks/navigation-hook";
 
 export const Navbar = () => {
   const { isMobileMenuVisible, handleToggleMenu, opacity } =
-    navigationController();
+    useNavigationController();
 
   return (
     <>
       <nav
         key={isMobileMenuVisible.toString()}
-        className="responsive-padding md:shadow-nav_shadow sticky left-0 top-0 z-10 flex h-navbar
-          w-full justify-center border-b-[0.5px] backdrop-blur-sm"
+        className="responsive-padding sticky left-0 top-0 z-10 flex h-navbar w-full justify-center
+          border-b-[0.5px] backdrop-blur-sm md:shadow-nav_shadow"
       >
         <div className="flex w-full max-w-[var(--max-content)] flex-row items-center justify-between">
-          <Image
-            className="md:hidden"
-            src="/assets/logo-mobile.svg"
-            alt="mobile-logo"
-            width={45}
-            height={45}
-          />
+          <NavLink href={"/"}>
+            <Image
+              className="md:hidden"
+              src="/assets/logo-mobile.svg"
+              alt="mobile-logo"
+              width={45}
+              height={45}
+            />
+          </NavLink>
           <div className="hidden md:block">
             <NavLink href={"/"}>JUSTYNA ODEJ</NavLink>
           </div>

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-export const navigationController = () => {
+const OPACITY = 0.5;
+
+export const useNavigationController = () => {
   const [opacity, setOpacity] = useState(0);
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);
 
   useEffect(() => {
     const changeNavbarOpacity = () => {
-      setOpacity(window.scrollY && 0.5);
+      setOpacity(window.scrollY && OPACITY);
     };
 
     window.addEventListener("scroll", changeNavbarOpacity);

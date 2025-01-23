@@ -1,9 +1,9 @@
+import { TextLoader } from "@/components/loaders/TextLoader";
+import RichText from "@/components/common/RichText";
 import { IHeroFields } from "@/lib/@types/generated/contentful";
 import { fetchContent } from "@/lib/contentful";
 import Image from "next/image";
-import RichText from "./RichText";
 import { Suspense } from "react";
-import { TextLoader } from "./loaders/TextLoader";
 
 async function HeroTextBig() {
   const hero = await fetchContent<IHeroFields>("hero");
@@ -20,6 +20,7 @@ async function HeroTextSmall() {
   return <RichText document={heroSmall} />;
 }
 
+//TODO: provide static data if something fail
 export const Hero = async () => {
   return (
     <div className="mt-5 grid w-full grid-cols-[1fr,1fr,215px]">
@@ -53,3 +54,5 @@ export const Hero = async () => {
     </div>
   );
 };
+
+export default Hero;

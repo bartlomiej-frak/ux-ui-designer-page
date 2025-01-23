@@ -1,23 +1,9 @@
 import { IShowcaseFields } from "@/lib/@types/generated/contentful";
 import Image from "next/image";
 import Link from "next/link";
+import { TagBox } from "../common/TagBox";
 
-const ShowCaseTag = ({ tagName }: { tagName: string }) => {
-  return (
-    <div
-      className="flex flex-row justify-center rounded-full border-[1px] bg-white bg-opacity-[10%]
-        px-[12px] py-[6px] align-middle text-[12px]"
-    >
-      {tagName}
-    </div>
-  );
-};
-
-export const ShowCaseCard = ({
-  showcaseItem,
-}: {
-  showcaseItem: IShowcaseFields;
-}) => {
+export const Card = ({ showcaseItem }: { showcaseItem: IShowcaseFields }) => {
   const { title, imagePath, slug, tags } = showcaseItem;
   return (
     <Link href={`/showcase/${slug}`}>
@@ -39,7 +25,7 @@ export const ShowCaseCard = ({
           </h2>
           <div className="flex flex-row gap-1">
             {tags.map((tag) => (
-              <ShowCaseTag key={tag} tagName={tag} />
+              <TagBox key={tag} tagName={tag} />
             ))}
           </div>
         </div>

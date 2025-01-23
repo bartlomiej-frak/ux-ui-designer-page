@@ -9,17 +9,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      animation: {
-        shimmer: "shimmer 1.5s infinite",
-      },
-      boxShadow: {
-        nav_shadow: "0px 15px 58px rgba(0, 0, 0, 0.7)",
+      screens: {
+        xs: "320px",
       },
       keyframes: {
         shimmer: {
           "0%": { transform: "translateX(50%)", opacity: "1" },
           "100%": { transform: "translateX(95%)", opacity: "0" },
         },
+        moveDown: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(20px)" },
+        },
+        moveUp: {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-20px)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.5s infinite",
+        moveDown: "moveDown ease-out forwards",
+        moveUp: "moveUp ease-out forwards",
+      },
+      boxShadow: {
+        nav_shadow: "0px 15px 58px rgba(0, 0, 0, 0.7)",
       },
       colors: {
         gray: {
@@ -38,7 +51,7 @@ const config: Config = {
         TSR: "TSR",
       },
       padding: {
-        global: "150px",
+        global: "125px",
       },
       spacing: {
         navbar: "85px",

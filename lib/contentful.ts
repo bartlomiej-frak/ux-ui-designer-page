@@ -1,10 +1,9 @@
 import { createClient, EntrySkeletonType, FieldsType } from "contentful";
-
-type ContentType = "showcase" | "hero";
+import { CONTENT_TYPE } from "./@types/generated/contentful";
 
 interface ContentSkeleton<T extends FieldsType> extends EntrySkeletonType {
   fields: T;
-  contentTypeId: ContentType;
+  contentTypeId: CONTENT_TYPE;
 }
 
 const client = createClient({
@@ -13,12 +12,15 @@ const client = createClient({
 });
 
 export async function fetchContent<T extends FieldsType>(
-  content_type: ContentType,
+  content_type: CONTENT_TYPE,
+  query?: Record<string, string | number>,
 ): Promise<T[]> {
   const content = await client.getEntries<ContentSkeleton<T>>({
     content_type,
+    ...query,
   });
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // throw new Error("error!!!");
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   return content.items.map((item) => item.fields) as T[];
 }

@@ -3,6 +3,50 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
+export interface IEducationFields {
+  /** Label */
+  label: string;
+}
+
+export interface IEducation extends Entry<IEducationFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "education";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IExperienceFields {
+  /** Title */
+  title: string;
+}
+
+export interface IExperience extends Entry<IExperienceFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "experience";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IHeroFields {
   /** Title */
   title: string;
@@ -21,6 +65,40 @@ export interface IHero extends Entry<IHeroFields> {
     contentType: {
       sys: {
         id: "hero";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IInfoPageFields {
+  /** Page Title */
+  pageTitle: string;
+
+  /** Tags */
+  tags: string[];
+
+  /** Autho Picture */
+  authoPicture: string;
+
+  /** Description */
+  description: string;
+
+  /** Competence */
+  competence: Entry<{ [fieldId: string]: unknown }>[];
+}
+
+export interface IInfoPage extends Entry<IInfoPageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "infoPage";
         linkType: "ContentType";
         type: "Link";
       };
@@ -62,9 +140,79 @@ export interface IShowcase extends Entry<IShowcaseFields> {
   };
 }
 
-export type CONTENT_TYPE = "hero" | "showcase";
+export interface IShowcasePageFields {
+  /** Project Name */
+  projectName: string;
 
-export type IEntry = IHero | IShowcase;
+  /** Slug */
+  slug: string;
+
+  /** Link */
+  link: string;
+
+  /** Tags */
+  tags: string[];
+
+  /** Challenges */
+  challenges: Document;
+
+  /** Goal */
+  goal: Document;
+
+  /** First Image */
+  firstImage: string;
+
+  /** Second Image */
+  secondImage?: string | undefined;
+
+  /** Discover */
+  discover: string;
+
+  /** Define */
+  define: string;
+
+  /** Develop */
+  develop: string;
+
+  /** Result */
+  result: string;
+
+  /** Main Image */
+  mainImage: string;
+}
+
+export interface IShowcasePage extends Entry<IShowcasePageFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "showcasePage";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE =
+  | "education"
+  | "experience"
+  | "hero"
+  | "infoPage"
+  | "showcase"
+  | "showcasePage";
+
+export type IEntry =
+  | IEducation
+  | IExperience
+  | IHero
+  | IInfoPage
+  | IShowcase
+  | IShowcasePage;
 
 export type LOCALE_CODE = "en-US";
 

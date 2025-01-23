@@ -1,4 +1,4 @@
-import { NavLink } from "../NavLink";
+import { NavLink } from "./NavLink";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MouseEventHandler } from "react";
 import { TfiClose } from "react-icons/tfi";
@@ -23,16 +23,16 @@ export const MobileMenuIcon = ({
 export const MobileMenu = () => {
   return (
     <div
-      className="calc-viewport top-navbar bg-mobile_bg absolute left-0 flex w-full flex-col
-        justify-between px-[15px] py-[30px] md:hidden"
+      className="calc-viewport absolute left-0 top-navbar flex w-full flex-col justify-between
+        bg-mobile_bg px-[15px] py-[30px] md:hidden"
     >
       <nav>
         <ul>
           <li className="text-[75px]">
-            <NavLink href={"/"}>Works</NavLink>
+            <NavLink href={"/#showcase"}>Works</NavLink>
           </li>
           <li className="font-TSR text-[75px] italic">
-            <NavLink href={"/"}>info</NavLink>
+            <NavLink href={"/info"}>info</NavLink>
           </li>
         </ul>
       </nav>

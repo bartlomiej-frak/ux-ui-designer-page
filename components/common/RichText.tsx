@@ -13,6 +13,12 @@ const RegularText = ({ children }: { children: ReactNode }) => (
   <p>{children}</p>
 );
 
+const ListItem = ({ children }: { children: ReactNode }) => <li>{children}</li>;
+
+const List = ({ children }: { children: ReactNode }) => (
+  <ul className="mt-5 list-inside list-disc">{children}</ul>
+);
+
 const ItalicText = ({ children }: { children: ReactNode }) => (
   <span className="font-TSR text-[42px] italic md:text-[42px] lg:text-[65px]">
     {children}
@@ -31,8 +37,15 @@ const options = {
     ),
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_: Node, children: ReactNode) => (
-      <RegularText>{children}</RegularText>
+    [BLOCKS.PARAGRAPH]: (_: Node, children: ReactNode) => {
+      if (BLOCKS.LIST_ITEM) {
+        return <>{children}</>;
+      }
+      <RegularText>{children}</RegularText>;
+    },
+    [BLOCKS.UL_LIST]: (_: Node, children: ReactNode) => <List>{children}</List>,
+    [BLOCKS.LIST_ITEM]: (_: Node, children: ReactNode) => (
+      <ListItem>{children}</ListItem>
     ),
   },
 };

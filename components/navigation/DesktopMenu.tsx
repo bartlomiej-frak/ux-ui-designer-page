@@ -1,10 +1,10 @@
-import { NavLink } from "../NavLink";
+import { NavLink } from "./NavLink";
 
 export const DesktopMenu = () => {
   return (
     <ul className="hidden flex-row items-center justify-between space-x-14 md:flex">
       <li>
-        <NavLink href={"#showcase"}>WORK</NavLink>
+        <NavLink href={"/#showcase"}>WORK</NavLink>
       </li>
       <li>
         <NavLink href={"/info"}>INFO</NavLink>

@@ -18,15 +18,17 @@ export const Navbar = () => {
           border-b-[0.5px] backdrop-blur-sm md:shadow-nav_shadow"
       >
         <div className="flex w-full max-w-[var(--max-content)] flex-row items-center justify-between">
-          <NavLink href={"/"}>
-            <Image
-              className="md:hidden"
-              src="/assets/logo-mobile.svg"
-              alt="mobile-logo"
-              width={45}
-              height={45}
-            />
-          </NavLink>
+          <div className="md:hidden">
+            <NavLink href={"/"}>
+              <Image
+                src="/assets/logo-mobile.svg"
+                alt="mobile-logo"
+                width={45}
+                height={45}
+              />
+            </NavLink>
+          </div>
+
           <div className="hidden md:block">
             <NavLink href={"/"}>JUSTYNA ODEJ</NavLink>
           </div>

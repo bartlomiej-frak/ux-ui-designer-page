@@ -3,50 +3,6 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
-export interface IEducationFields {
-  /** Label */
-  label: string;
-}
-
-export interface IEducation extends Entry<IEducationFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "education";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IExperienceFields {
-  /** Title */
-  title: string;
-}
-
-export interface IExperience extends Entry<IExperienceFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "experience";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface IHeroFields {
   /** Title */
   title: string;
@@ -86,7 +42,7 @@ export interface IInfoPageFields {
   description: string;
 
   /** Competence */
-  competence: Entry<{ [fieldId: string]: unknown }>[];
+  competence: Record<string, any>;
 }
 
 export interface IInfoPage extends Entry<IInfoPageFields> {
@@ -198,21 +154,9 @@ export interface IShowcasePage extends Entry<IShowcasePageFields> {
   };
 }
 
-export type CONTENT_TYPE =
-  | "education"
-  | "experience"
-  | "hero"
-  | "infoPage"
-  | "showcase"
-  | "showcasePage";
+export type CONTENT_TYPE = "hero" | "infoPage" | "showcase" | "showcasePage";
 
-export type IEntry =
-  | IEducation
-  | IExperience
-  | IHero
-  | IInfoPage
-  | IShowcase
-  | IShowcasePage;
+export type IEntry = IHero | IInfoPage | IShowcase | IShowcasePage;
 
 export type LOCALE_CODE = "en-US";
 

@@ -1,3 +1,4 @@
+import { Soon } from "@/components/common/Soon";
 import { DesignProcess } from "@/components/showcase/DesingProcess";
 import { Goals } from "@/components/showcase/Goals";
 import { Header } from "@/components/showcase/Header";
@@ -29,6 +30,10 @@ export default async function ShowCasePage({ params }: ShowCasePageParams) {
   const page = await fetchContent<IShowcasePageFields>("showcasePage", {
     "fields.slug": slug,
   });
+
+  if (slug === "soon") {
+    return <Soon />;
+  }
 
   const showcaseFields = page[0];
 

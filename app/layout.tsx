@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
 import "@/styles/globals.css";
-import RootLayout from "@/components/navigation/RootLayout";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "UI/UX Designer Portfolio - Justyna Odej",
@@ -9,20 +8,13 @@ export const metadata: Metadata = {
 };
 
 export default function HomePageLayout({
-  hero,
-  showcase,
+  children,
 }: Readonly<{
-  hero: React.JSX.Element;
-  showcase: React.JSX.Element;
+  children: React.JSX.Element;
 }>) {
   return (
     <html lang="en">
-      <body>
-        <RootLayout>
-          {hero}
-          {showcase}
-        </RootLayout>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

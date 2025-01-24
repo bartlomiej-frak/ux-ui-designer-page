@@ -14,7 +14,6 @@ export default async function InfoPage() {
   }
 
   return (
-    //TODO: use main and section htmls elements
     <main>
       <Header page={page} />
       <section className="mt-10">

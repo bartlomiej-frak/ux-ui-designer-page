@@ -7,7 +7,10 @@ export const Skills = ({ fields }: { fields: SkillsProps[] }) => {
       {fields.map((field) => {
         if (field.title === "other") {
           return (
-            <p className="col-span-2 col-start-1 mt-4 text-white">
+            <p
+              key={field.id}
+              className="col-span-2 col-start-1 mt-4 text-white"
+            >
               <span className="font-bold capitalize">{`${field.title}: `}</span>
               {field.description}
             </p>

@@ -20,7 +20,6 @@ export async function fetchContent<T extends FieldsType>(
     ...query,
   });
 
-  // throw new Error("error!!!");
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return content.items.map((item) => item.fields) as T[];
 }

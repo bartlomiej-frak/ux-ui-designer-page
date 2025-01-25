@@ -40,5 +40,6 @@ export const useNavigationController = () => {
     opacity,
     isMobileMenuVisible,
     handleToggleMenu,
+    setIsMobileMenuVisible,
   };
 };

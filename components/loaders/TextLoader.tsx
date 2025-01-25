@@ -23,7 +23,7 @@ export const TextLoader = ({
           className="relative w-full overflow-hidden opacity-[50%]"
         >
           <div
-            className="animate-shimmer absolute inset-0 w-[50%] bg-gradient-to-r from-transparent
+            className="absolute inset-0 w-[50%] animate-shimmer bg-gradient-to-r from-transparent
               via-gray-400 to-transparent"
           ></div>
         </div>

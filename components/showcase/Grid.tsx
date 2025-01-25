@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Card } from "./Card";
 import { IShowcaseFields } from "@/lib/@types/generated/contentful";
+import { useViewportObserver } from "@/hooks/viewport-observer.hook";
 
 type FilterBy =
   | "All"
@@ -13,6 +14,9 @@ type FilterBy =
 
 export const Grid = ({ data }: { data: IShowcaseFields[] }) => {
   const [filterBy, setFilter] = useState<FilterBy>("All");
+  const isDesktopDevice = useViewportObserver();
+
+  console.log(isDesktopDevice);
 
   return (
     <>
@@ -39,7 +43,9 @@ export const Grid = ({ data }: { data: IShowcaseFields[] }) => {
       <div className="grid grid-cols-1 flex-wrap gap-5 pt-[70px] sm:grid-cols-2 xl:grid-cols-3">
         {data
           .filter((item) =>
-            filterBy === "All" ? item : item.tags.includes(filterBy),
+            filterBy === "All" || !isDesktopDevice
+              ? item
+              : item.tags.includes(filterBy),
           )
           .map((item) => (
             <Card key={item.title} showcaseItem={item} />

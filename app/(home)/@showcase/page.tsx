@@ -15,15 +15,13 @@ async function Cards() {
   return <Grid data={showcaseByDateOfCreation} />;
 }
 
-export const ShowCase = () => {
+export default function ShowCase() {
   return (
     <div id="showcase" className="pt-[80px]">
       <h2 className="text-[100px] leading-[100px]">Works</h2>
-      <Suspense fallback={<GridSkeleton />}>
+      <Suspense fallback={<GridSkeleton cells={6} />}>
         <Cards />
       </Suspense>
     </div>
   );
-};
-
-export default ShowCase;
+}

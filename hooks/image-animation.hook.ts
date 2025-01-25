@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 const SHIFT_RANGE = 40;
-//SECONDS
 const ANIMATION_DURATION = 1;
 
 export const useImageAnimation = () => {

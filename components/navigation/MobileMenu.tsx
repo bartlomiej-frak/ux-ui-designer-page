@@ -1,9 +1,10 @@
 import { NavLink } from "./NavLink";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { MouseEventHandler } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 import { TfiClose } from "react-icons/tfi";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface MobileMenuIconProps {
   isVisible: boolean;
@@ -20,7 +21,22 @@ export const MobileMenuIcon = ({
     <RxHamburgerMenu onClick={toggleMenu} className="mobile-menu-icon" />
   );
 
-export const MobileMenu = () => {
+export const MobileMenu = ({
+  closeMenu,
+}: {
+  closeMenu: Dispatch<SetStateAction<boolean>>;
+}) => {
+  "use client";
+  const pathname = usePathname();
+
+  const handleCloseMenu = (href: string) => {
+    const isCurrentPath = pathname.startsWith(href);
+    if (!isCurrentPath) {
+      return;
+    }
+    closeMenu(false);
+  };
+
   return (
     <div
       className="calc-viewport absolute left-0 top-navbar flex w-full flex-col justify-between
@@ -28,10 +44,13 @@ export const MobileMenu = () => {
     >
       <nav>
         <ul>
-          <li className="text-[75px]">
+          <li className="text-[75px]" onClick={() => handleCloseMenu("/")}>
             <NavLink href={"/#showcase"}>Works</NavLink>
           </li>
-          <li className="font-TSR text-[75px] italic">
+          <li
+            className="font-TSR text-[75px] italic"
+            onClick={() => handleCloseMenu("/info")}
+          >
             <NavLink href={"/info"}>info</NavLink>
           </li>
         </ul>

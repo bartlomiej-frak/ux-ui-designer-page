@@ -5,6 +5,8 @@ import { fetchContent } from "@/lib/contentful";
 import Image from "next/image";
 import { Suspense } from "react";
 
+export const revalidate = 3600;
+
 async function HeroTextBig() {
   const hero = await fetchContent<IHeroFields>("hero");
   const heroBig = hero.filter(({ title }) => title === "hero-big")[0].heroText;
@@ -20,8 +22,7 @@ async function HeroTextSmall() {
   return <RichText document={heroSmall} />;
 }
 
-//TODO: provide static data if something fail
-export const Hero = async () => {
+export default async function Hero() {
   return (
     <div className="mt-5 grid w-full grid-cols-[1fr,1fr,215px]">
       <Image
@@ -53,6 +54,4 @@ export const Hero = async () => {
       </div>
     </div>
   );
-};
-
-export default Hero;
+}

@@ -7,8 +7,12 @@ import { DesktopMenu } from "./DesktopMenu";
 import { useNavigationController } from "../../hooks/navigation-hook";
 
 export const Navbar = () => {
-  const { isMobileMenuVisible, handleToggleMenu, opacity } =
-    useNavigationController();
+  const {
+    isMobileMenuVisible,
+    handleToggleMenu,
+    opacity,
+    setIsMobileMenuVisible,
+  } = useNavigationController();
 
   return (
     <>
@@ -47,7 +51,9 @@ export const Navbar = () => {
             className="calc-navbar-mask absolute left-0 top-0 -z-10 w-full bg-gray-primary transition
               duration-300 ease-linear"
           />
-          {isMobileMenuVisible && <MobileMenu />}
+          {isMobileMenuVisible && (
+            <MobileMenu closeMenu={setIsMobileMenuVisible} />
+          )}
         </div>
       </nav>
     </>

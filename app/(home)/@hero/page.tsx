@@ -30,6 +30,7 @@ export default async function Hero() {
         alt="page-logo"
         width={150}
         height={150}
+        priority
       />
       <div className="col-start-3 col-end-4 flex items-center align-middle">
         <h2 className="text-center text-2xl text-gray-secondary">

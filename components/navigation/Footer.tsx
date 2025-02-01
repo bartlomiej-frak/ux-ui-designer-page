@@ -36,6 +36,7 @@ export const Footer = () => {
                 alt="linktr-icon"
                 width={20}
                 height={20}
+                style={{ width: "20px", height: "20px" }}
               />
             </Link>
           </div>

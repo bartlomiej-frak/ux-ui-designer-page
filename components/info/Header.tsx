@@ -22,7 +22,12 @@ export const Header = ({ page }: { page: IInfoPageFields }) => {
         className="relative mt-5 flex h-[350px] w-full xs:h-[120vw] md:col-span-1 md:col-start-2
           md:row-span-3 md:row-start-1 md:mt-0 md:h-[60vw] md:w-full lg:h-full"
       >
-        <Image src={page.authoPicture} alt={"portfolio-author-picture "} fill />
+        <Image
+          src={page.authoPicture}
+          alt={"portfolio-author-picture "}
+          priority
+          fill
+        />
       </div>
       {/* description */}
       <article className="mt-5 text-white md:text-[12px] lg:text-[14px]">
@@ -39,6 +44,7 @@ export const Header = ({ page }: { page: IInfoPageFields }) => {
             alt="email-icon"
             width={20}
             height={20}
+            style={{ width: "20px", height: "20px" }}
           />
           <p>odej.studio@gmail.com</p>
         </div>
@@ -48,6 +54,7 @@ export const Header = ({ page }: { page: IInfoPageFields }) => {
             alt="phone-icon"
             width={20}
             height={20}
+            style={{ width: "20px", height: "20px" }}
           />
           <p>+48 790 503 306</p>
         </div>
@@ -57,6 +64,7 @@ export const Header = ({ page }: { page: IInfoPageFields }) => {
             alt="email-icon"
             width={20}
             height={20}
+            style={{ width: "20px", height: "20px" }}
           />
           <p>linktr.ee/justynaodej</p>
         </div>

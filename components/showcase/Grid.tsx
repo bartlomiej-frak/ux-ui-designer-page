@@ -16,8 +16,6 @@ export const Grid = ({ data }: { data: IShowcaseFields[] }) => {
   const [filterBy, setFilter] = useState<FilterBy>("All");
   const isDesktopDevice = useViewportObserver();
 
-  console.log(isDesktopDevice);
-
   return (
     <>
       <div className="hidden flex-row justify-end gap-10 align-middle text-[20px] text-white lg:flex">
